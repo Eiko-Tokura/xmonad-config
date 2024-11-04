@@ -22,6 +22,11 @@
 -- This combinator can be nested, and has a good support for using
 -- "XMonad.Layout.Tabbed" as a sublayout.
 --
+-- Eiko: I modified this module to support recursive applying the combinator
+-- so that we can have very cool flexible layouts like flex2Col, flex3Col, even more!~
+--
+-- Time permitting, I will try to rewrite it so that it can be more flexible and stable.
+--
 -----------------------------------------------------------------------------
 
 module TallMastersCombo (
