@@ -14,7 +14,7 @@ XMONAD_HS_FILE="xmonad.hs"
 # The updated line will look like 'home = "/actual/absolute/path"'
 sed -i.bak "s|^home = \".*\"|home = \"$(echo $HOME)/\"|" "$XMONAD_HS_FILE"
 
-echo "[Asuka]: Do you want XMonad to adjust your screen brightness? This can be useful if you are using a laptop. XMonad will add you to the video group and add a udev rule to allow video group to edit brightness. It might not be necessary if you are using a desktop computer. [y/N]"
+echo "[Asuka]: Do you want XMonad to adjust your screen brightness? This can be useful if you are using a laptop. XMonad will add you to the video group and add a udev rule to allow video group to edit brightness. It might not be meaningful if you are using a desktop computer. [y/N]"
 read -r adjust_brightness
 if [ "$adjust_brightness" = "y" ]; then
     sudo usermod -aG video $USER
