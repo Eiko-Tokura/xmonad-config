@@ -43,7 +43,7 @@ sudo pacman -S --needed git kitty alacritty dmenu trayer picom fcitx dunst redsh
 
 echo "[Asuka]: Do you want to install stack using pacman? If you have already installed stack via other methods, you should skip this step. Otherwise please let me help you install it owo [Y/n]"
 read -r install_stack
-if [ "$install_stack" = "y" ]; then
+if [ "$install_stack" != "n" ]; then
     sudo pacman -S stack
 fi
 
