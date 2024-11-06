@@ -44,20 +44,19 @@ sudo pacman -S --needed git kitty alacritty dmenu trayer picom fcitx dunst redsh
 echo "[Asuka]: Do you want to install stack ? If you have already installed stack via some methods, you could skip this step. Otherwise please let me help you install it owo [Y/n]"
 read -r install_stack
 if [ "$install_stack" = "y" ]; then
-    sudo pacman -S --needed curl
-    # sudo pacman -S stack
     echo "[Asuka]: Do you wish to install stack via curl or aur or pacman? [c/a/p]
 You can also install it yourself by other methods. It is recommended that you install the latest version of stack for example via curl or aur, the pacman version is not the latest."
     read -r install_method
     if [ "$install_method" = "a" ]; then
 	echo "[Asuka]: Installing stack via aur"
-	git clone https://aur.archlinux.org/stack.git
-	cd stack
+	git clone https://aur.archlinux.org/stack-bin.git
+	cd stack-bin
 	makepkg -si
     elif [ "$install_method" = "p" ]; then
 	echo "[Asuka]: Installing stack via pacman"
-	sudo pacman -S stack
+	sudo pacman -S --needed stack
     elif [ "$install_method" = "c" ]; then
+        sudo pacman -S --needed curl
 	echo "[Asuka]: Installing stack via curl"
     	curl -sSL https://get.haskellstack.org/ | sh
     fi
