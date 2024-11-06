@@ -104,7 +104,7 @@ Config {
         , Run Date           "<fc=#FFFFFF>%F (%a) %T</fc>" "date" 10
         , Run Com "/home/eiko/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 100
 
-	, Run Com "bash" ["-c", "awk -v power=$(cat /sys/class/power_supply/BAT0/current_now) 'BEGIN {printf \"POW %.2fW\", power/125000}'"] "power" 50
+	, Run Com "bash" ["-c", "awk -v power=$(cat /sys/class/power_supply/BAT0/power_now) 'BEGIN {printf \"POW %.2fW\", power/1000000}'"] "power" 50
 	, Run UnsafeStdinReader
         ] 
    }
