@@ -106,7 +106,7 @@ home :: String
 home = "/home/eiko/"
 
 -- Border colors for unfocused and focused windows, respectively.
-myNormalBorderColor  = "#121212"
+myNormalBorderColor  = "#efefef"
 myFocusedBorderColor = "#66aaff"
 
 -- path to find background pictures
@@ -150,7 +150,7 @@ getTouchPadId = "xinput list | grep 'Touchpad' | awk '{print $5} {print $6}' | g
 myRaiseVolume am = spawn $ "pactl set-sink-volume @DEFAULT_SINK@ +" ++ am ++ "%"
 myLowerVolume am = spawn $ "pactl set-sink-volume @DEFAULT_SINK@ -" ++ am ++ "%"
 
-xmobarColorStr = xmobarColorDark
+xmobarColorStr = xmobarColorLight
 xmobarColorLight = "CC8899"
 xmobarColorDark = "000000"
 
@@ -658,7 +658,7 @@ myStartupHook = do
     spawn "killall trayer" -- kill trayer
     spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ "--tint 0x" ++ xmobarColorStr ++ " --height 17") -- restart trayer
     setANewBGOnce --set a bg! owo
-    spawnOnce "picom &" -- transparent compositor
+    spawnOnce $ "picom \"" ++ configPath @Picom ++ "\" &" -- transparent compositor
     spawnOnce "fcitx &" -- input method
     spawnOnce "dunst &" -- dunst
     --spawnOnce "redshift -P -O 5000" -- redshift, you can change the screen temparature here

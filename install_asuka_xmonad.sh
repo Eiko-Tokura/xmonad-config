@@ -41,10 +41,26 @@ cp xmobar/trayer-padding-icon.sh ~/.config/xmobar/trayer-padding-icon.sh
 echo "[Asuka]: Installing dependencies"
 sudo pacman -S --needed git kitty alacritty dmenu trayer picom fcitx dunst redshift feh flameshot bluedevil maim slock pavucontrol arandr htop yazi sddm
 
-echo "[Asuka]: Do you want to install stack using pacman? If you have already installed stack via other methods, you should skip this step. Otherwise please let me help you install it owo [Y/n]"
+echo "[Asuka]: Do you want to install stack ? If you have already installed stack via some methods, you could skip this step. Otherwise please let me help you install it owo [Y/n]"
 read -r install_stack
-if [ "$install_stack" != "n" ]; then
-    sudo pacman -S stack
+if [ "$install_stack" = "y" ]; then
+    sudo pacman -S --needed curl
+    # sudo pacman -S stack
+    echo "[Asuka]: Do you wish to install stack via curl or aur or pacman? [c/a/p]
+You can also install it yourself by other methods. It is recommended that you install the latest version of stack for example via curl or aur, the pacman version is not the latest."
+    read -r install_method
+    if [ "$install_method" = "a" ]; then
+	echo "[Asuka]: Installing stack via aur"
+	git clone https://aur.archlinux.org/stack.git
+	cd stack
+	makepkg -si
+    elif [ "$install_method" = "p" ]; then
+	echo "[Asuka]: Installing stack via pacman"
+	sudo pacman -S stack
+    elif [ "$install_method" = "c" ]; then
+	echo "[Asuka]: Installing stack via curl"
+    	curl -sSL https://get.haskellstack.org/ | sh
+    fi
 fi
 
 echo "[Asuka]: Cloning XMonad and XMonad Contrib from github repository"
@@ -52,8 +68,14 @@ cd ~/.xmonad
 git clone https://github.com/xmonad/xmonad
 git clone https://github.com/xmonad/xmonad-contrib
 
-if [ $! -ne 0 ]; then
+if [ $? -ne 0 ]; then
     echo "[Asuka]: Failed to clone XMonad and XMonad Contrib. You might not have internet connection or you need magical network environment."
+    exit 1
+fi
+
+# Detect if stack is installed
+if ! command -v stack &> /dev/null; then
+    echo "[Asuka]: Stack is not installed. Please install stack first."
     exit 1
 fi
 
