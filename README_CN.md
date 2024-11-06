@@ -6,6 +6,16 @@
 
 Eiko 的 XMonad 配置经过精心调整，以创建一个高效的工作环境，集成了各种工具和实用程序，以增强用户体验。我使用了一些自定义编写的Haskell模块以及来自 `xmonad-contrib` 的贡献插件。XMonad在可扩展这方面是非常强的，大家可以根据个人偏好进行修改。
 
+### 安装脚本
+
+我写了一个脚本，可以完成大部分工作owo，但你可能仍然需要手动配置以适应你的硬件和习惯。要安装此配置，请运行以下脚本：
+
+```bash
+git clone https://github.com/Eiko-Tokura/xmonad-config.git
+cd xmonad-config
+./install_asuka_xmonad.sh
+```
+
 ### 安装要求
 
 要使用此配置，请确保您在系统上安装以下命令行实用程序：

@@ -6,7 +6,17 @@ This document provides an overview of Eiko's custom XMonad configuration, includ
 
 Eiko's XMonad configuration has been finely tuned to create an efficient working environment, integrating various tools and utilities to enhance the user experience. I use some custom-made Haskell modules along with contributions from `xmonad-contrib`. XMonad is highly extensible, allowing everyone to modify it according to personal preferences.
 
-### Installation Requirements
+### Installation Using Script
+
+I wrote a script that tries to do most of the work for you, but you still have to configure it manually to fit your hardware and your work style. To install this configuration, run the following script:
+
+```bash
+git clone https://github.com/Eiko-Tokura/xmonad-config.git
+cd xmonad-config
+./install_asuka_xmonad.sh
+```
+
+### Installation Requirements (For Manual Installation)
 
 To use this configuration, ensure you have the following command-line utilities installed on your system:
 
