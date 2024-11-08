@@ -658,7 +658,7 @@ myStartupHook = do
     spawn "killall trayer" -- kill trayer
     spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ "--tint 0x" ++ xmobarColorStr ++ " --height 17") -- restart trayer
     setANewBGOnce --set a bg! owo
-    spawnOnce $ "picom \"" ++ configPath @Picom ++ "\" &" -- transparent compositor
+    spawnOnce $ "picom --config \"" ++ configPath @Picom ++ "\" &" -- transparent compositor
     spawnOnce "fcitx &" -- input method
     spawnOnce "dunst &" -- dunst
     --spawnOnce "redshift -P -O 5000" -- redshift, you can change the screen temparature here
