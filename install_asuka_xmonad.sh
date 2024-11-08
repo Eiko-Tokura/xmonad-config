@@ -39,7 +39,7 @@ mkdir -p ~/.config/xmobar
 cp xmobar/trayer-padding-icon.sh ~/.config/xmobar/trayer-padding-icon.sh
 
 echo "[Asuka]: Installing dependencies"
-sudo pacman -S --needed git kitty alacritty dmenu trayer picom fcitx dunst redshift feh flameshot bluedevil maim slock pavucontrol arandr htop yazi sddm
+sudo pacman -S --needed git kitty alacritty dmenu trayer picom fcitx dunst redshift feh flameshot maim slock pavucontrol arandr htop yazi sddm
 
 echo "[Asuka]: Do you want to install stack ? If you have already installed stack via some methods, you could skip this step. Otherwise please let me help you install it owo [Y/n]"
 read -r install_stack
