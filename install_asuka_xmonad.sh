@@ -104,6 +104,8 @@ if [ "$enable_sddm" != "n" ]; then
     sudo systemctl enable sddm
 fi
 
+setup_dolphin
+
 echo "[Asuka]: There might still be some manual configurations you need to / can do owo. 
 For example adding some background pictures to ~/Pictures/Saved Pictures/ComputerBG/ (you can change the path in the configuration file).
 
@@ -112,3 +114,25 @@ You can find them in the configuration files. The configuration files are locate
 The xmobar configuration file is located in ~/.config/xmobar. You can also find the XMonad documentation at https://xmonad.org/documentation.html. Enjoy your XMonad experience!
 
 Done! Please reboot your system or restart your display manager to use XMonad."
+
+
+## function to setup dolphin
+
+function setup_dolphin {
+    echo "[Asuka]: Do you want to setup dolphin? [y/N]"
+    read -r setup_dolphin
+    if [ "$setup_dolphin" = "y" ]; then
+	echo "[Asuka]: Installing dolphin"
+	sudo pacman -S --needed dolphin
+	echo "[Asuka]: Setup application menu"
+	export XDG_MENU_PREFIX="arch-"
+	echo "XDG_MENU_PREFIX=arch-" | sudo tee -a /etc/environment
+	kbuildsycoca6
+	echo "[Asuka]: Do you want to install dolphin-plugins? [y/N]"
+	read -r install_dolphin_plugins
+	if [ "$install_dolphin_plugins" = "y" ]; then
+	    echo "[Asuka]: Installing dolphin-plugins"
+	    sudo pacman -S --needed
+	fi
+    fi
+}
