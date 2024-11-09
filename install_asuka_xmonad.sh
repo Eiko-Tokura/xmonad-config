@@ -116,7 +116,7 @@ git clone https://github.com/xmonad/xmonad
 git clone https://github.com/xmonad/xmonad-contrib
 
 if [ $? -ne 0 ]; then
-    echo "[Asuka]: Failed to clone XMonad and XMonad Contrib. You might not have internet connection or you need magical network environment."
+	echo "[Asuka]: Failed to clone XMonad and XMonad Contrib. You might have already ran an installation before (if that installation is incomplete, please remove the xmonad and xmonad-contrib directories), or not have internet connection, or you need magical network environment."
     exit 1
 fi
 
