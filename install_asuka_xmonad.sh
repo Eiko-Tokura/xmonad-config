@@ -1,3 +1,25 @@
+## function to setup dolphin
+
+function setup_dolphin {
+    echo "[Asuka]: Do you want to setup dolphin? [y/N]"
+    read -r setup_dolphin
+    if [ "$setup_dolphin" = "y" ]; then
+	echo "[Asuka]: Installing dolphin"
+	sudo pacman -S --needed dolphin
+	echo "[Asuka]: Setup application menu"
+	export XDG_MENU_PREFIX="arch-"
+	echo "XDG_MENU_PREFIX=arch-" | sudo tee -a /etc/environment
+	kbuildsycoca6
+	echo "[Asuka]: Do you want to install dolphin-plugins? [y/N]"
+	read -r install_dolphin_plugins
+	if [ "$install_dolphin_plugins" = "y" ]; then
+	    echo "[Asuka]: Installing dolphin-plugins"
+	    sudo pacman -S --needed
+	fi
+    fi
+}
+
+## main script
 echo "[Asuka]: This is Asuka's XMonad installation script. It will install XMonad, XMobar, and other dependencies. It will also copy the configuration files to the correct directories. This script is intended for Arch Linux. Do you want to continue? [Y/n]"
 read -r confirm
 if [ "$confirm" != "y" ]; then
@@ -116,23 +138,3 @@ The xmobar configuration file is located in ~/.config/xmobar. You can also find 
 Done! Please reboot your system or restart your display manager to use XMonad."
 
 
-## function to setup dolphin
-
-function setup_dolphin {
-    echo "[Asuka]: Do you want to setup dolphin? [y/N]"
-    read -r setup_dolphin
-    if [ "$setup_dolphin" = "y" ]; then
-	echo "[Asuka]: Installing dolphin"
-	sudo pacman -S --needed dolphin
-	echo "[Asuka]: Setup application menu"
-	export XDG_MENU_PREFIX="arch-"
-	echo "XDG_MENU_PREFIX=arch-" | sudo tee -a /etc/environment
-	kbuildsycoca6
-	echo "[Asuka]: Do you want to install dolphin-plugins? [y/N]"
-	read -r install_dolphin_plugins
-	if [ "$install_dolphin_plugins" = "y" ]; then
-	    echo "[Asuka]: Installing dolphin-plugins"
-	    sudo pacman -S --needed
-	fi
-    fi
-}
