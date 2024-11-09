@@ -126,6 +126,15 @@ if [ "$enable_sddm" != "n" ]; then
     sudo systemctl enable sddm
 fi
 
+echo "[Asuka]: Do you want to link the xmonad and xmobar binaries to /usr/local/bin, or adding their path in $HOME/.local/bin to your PATH? [l/a/N]"
+read -r link_binaries
+if [ "$link_binaries" = "l" ]; then
+    sudo ln -s $HOME/.local/bin/xmonad /usr/local/bin/xmonad
+    sudo ln -s $HOME/.local/bin/xmobar /usr/local/bin/xmobar
+elif [ "$link_binaries" = "a" ]; then
+    echo "export PATH=$HOME/.local/bin:$PATH" >> ~/.bashrc
+fi
+
 setup_dolphin
 
 echo "[Asuka]: There might still be some manual configurations you need to / can do owo. 
