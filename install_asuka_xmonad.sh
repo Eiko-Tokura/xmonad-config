@@ -113,11 +113,25 @@ install_stack
 
 echo "[Asuka]: Cloning XMonad and XMonad Contrib from github repository"
 cd ~/.xmonad
-git clone https://github.com/xmonad/xmonad
-git clone https://github.com/xmonad/xmonad-contrib
+if [ -d "xmonad" ]; then
+    echo "[Asuka]: Found existing xmonad directory, do you want to remove it, or skip downloading? [r/s]"
+    read -r remove_xmonad
+    if [ "$remove_xmonad" = "r" ]; then
+	rm -rf xmonad
+	rm -rf xmonad-contrib
+    else
+	echo "[Asuka]: Skipping downloading xmonad and xmonad-contrib"
+	skip_download=true
+    fi
+fi
+
+if [ "$skip_download" != "true" ]; then
+    git clone https://github.com/xmonad/xmonad
+    git clone https://github.com/xmonad/xmonad-contrib
+fi
 
 if [ $? -ne 0 ]; then
-	echo "[Asuka]: Failed to clone XMonad and XMonad Contrib. You might have already ran an installation before (if that installation is incomplete, please remove the xmonad and xmonad-contrib directories), or not have internet connection, or you need magical network environment."
+    echo "[Asuka]: Failed to clone XMonad and XMonad Contrib. Please see the error above, if it was a connection issue, you might not have internet connection, or you need magical network environment."
     exit 1
 fi
 
