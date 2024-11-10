@@ -20,7 +20,7 @@ function setup_dolphin {
 }
 
 function setup_link () {
-	echo "[Asuka]: Do you want to link the xmonad and xmobar binaries to /usr/local/bin, or adding their path in $HOME/.local/bin to your PATH? [l/a/N]"
+	echo "[Asuka]: Do you want to link the xmonad and xmobar binaries to /usr/local/bin, or adding their path in $HOME/.local/bin to your PATH? [l/a/n]"
 	read -r link_binaries
 	if [ "$link_binaries" = "l" ]; then
 	    sudo ln -s $HOME/.local/bin/xmonad /usr/local/bin/xmonad
@@ -106,7 +106,8 @@ mkdir -p ~/.config/xmobar
 cp xmobar/trayer-padding-icon.sh ~/.config/xmobar/trayer-padding-icon.sh
 
 echo "[Asuka]: Installing dependencies"
-sudo pacman -S --needed git kitty alacritty dmenu trayer picom fcitx dunst redshift feh flameshot maim slock pavucontrol arandr htop yazi sddm
+sudo pacman -S --needed git xorg-server xorg-apps xorg-xinit xorg-xmessage libx11 libxft libxinerama libxrandr libxss pkgconf
+sudo pacman -S --needed kitty alacritty dmenu trayer picom fcitx dunst redshift feh flameshot maim slock pavucontrol arandr htop btop yazi sddm
 
 install_stack
 
