@@ -20,7 +20,7 @@ function setup_dolphin {
 }
 
 function setup_link () {
-	echo "[Asuka]: Do you want to link the xmonad and xmobar binaries to /usr/local/bin, or adding their path in $HOME/.local/bin to your PATH? [l/a/n]"
+	echo "[Asuka]: Do you want to link the xmonad and xmobar binaries to /usr/local/bin, or adding their path in $HOME/.local/bin to your PATH? [l/a/N]"
 	read -r link_binaries
 	if [ "$link_binaries" = "l" ]; then
 	    sudo ln -s $HOME/.local/bin/xmonad /usr/local/bin/xmonad
@@ -41,7 +41,7 @@ function setup_sddm {
 function install_stack {
 	echo "[Asuka]: Do you want to install stack ? If you have already installed stack via some methods, you could skip this step. Otherwise please let me help you install it owo [Y/n]"
 	read -r install_stack
-	if [ "$install_stack" = "y" ]; then
+	if [ "$install_stack" != "n" ]; then
 	    echo "[Asuka]: Do you wish to install stack via curl or aur or pacman? [c/a/p]
 	You can also install it yourself by other methods. It is recommended that you install the latest version of stack for example via curl or aur, the pacman version is not the latest."
 	    read -r install_method
