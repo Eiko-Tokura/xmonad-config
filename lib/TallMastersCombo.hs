@@ -225,7 +225,7 @@ handleMessage' i@(TMSCombineTwo f w1 w2 vsp nmaster delta frac layout1 layout2) 
   | Just Expand <- fromMessage m = return . Just $ TMSCombineTwo f w1 w2 vsp nmaster delta (min 1 $ frac+delta) layout1 layout2
   | Just (IncMasterN d) <- fromMessage m =
       let w = w1++w2
-          nmasterNew = min (max 0 (nmaster+d)) (length w)
+          nmasterNew = min (max 1 (nmaster+d)) (length w)
           (w1',w2')  = splitAt nmasterNew w
       in return . Just $ TMSCombineTwo f w1' w2' vsp nmasterNew delta frac layout1 layout2
   | Just SwitchOrientation <- fromMessage m =
