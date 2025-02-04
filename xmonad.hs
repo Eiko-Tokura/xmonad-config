@@ -653,7 +653,6 @@ myLogHook = colorSaved
 --
 myStartupHook = do
     --startUpCleanUp      -- Clean .viewedDocs
-    setConfig $ IncreaseBrightness 0 -- set the brightness to the default value
     --spawnOnce defaultDisplaySetting -- set the default resolution
     spawn "killall trayer" -- kill trayer
     spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ "--tint 0x" ++ xmobarColorStr ++ " --height 17") -- restart trayer
@@ -668,6 +667,7 @@ myStartupHook = do
     --when laptop $ spawn $ setTouchPad "libinput Tapping Enabled"           "1"
     replaceCapslockToEscape -- replace Caps to ESC
     -- startBGTimer --detect-client-opacity 
+    setConfig $ IncreaseBrightness 0 -- set the brightness to the default value
         where
           setTouchPad str val = getTouchPadId ++ "xinput set-prop " ++ touchpadId ++ " '" ++ str ++ "' " ++ val
           touchpadId = "{}"
