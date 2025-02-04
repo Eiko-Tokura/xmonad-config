@@ -85,7 +85,8 @@ Here are some basic key bindings defined in the configuration:
     - Next Window: `Mod + J`
     - Previous Window: `Mod + K`
     - Focus Master Window: `Mod + M`
-    - Toggle between Primary and Secondary Windows: `Mod + N`
+    - Move To Next Pane: `Mod + L`
+    - Move To Previous Pane: `Mod + H`
 
 - **Move Windows**:
     - Swap Master Window: `Mod + Return`
@@ -108,8 +109,8 @@ Here are some basic key bindings defined in the configuration:
 
 - **Change Layout**: `Mod + Escape`
 - **Toggle Local Layout**: `Mod + U`
-- **Expand Master Area**: `Mod + L`
-- **Shrink Master Area**: `Mod + H`
+- **Expand Master Area**: `Mod + Shift + L`
+- **Shrink Master Area**: `Mod + Shift + H`
 - **Increase Current Area's Window Capacity**: `Mod + ;`
 - **Decrease Current Area's Window Capacity**: `Mod + Shift + ;`
 

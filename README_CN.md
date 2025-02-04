@@ -86,7 +86,8 @@ paru -S ueberzugpp
     - 下一个窗口：`Mod + J`
     - 上一个窗口：`Mod + K`
     - 聚焦主窗口：`Mod + M`
-    - 切换主次窗口: `Mod + N`
+    - 移动到下一个Pane: `Mod + L`
+    - 移动到上一个Pane: `Mod + H`
 
 - **移动窗口**：
     - 交换主窗口：`Mod + Return`
@@ -109,8 +110,8 @@ paru -S ueberzugpp
 
 - **更改布局**：`Mod + Escape`
 - **切换局部布局**: `Mod + U`
-- **扩大主区域**：`Mod + L`
-- **缩小主区域**：`Mod + H`
+- **扩大主区域**：`Mod + Shift + L`
+- **缩小主区域**：`Mod + Shift + H`
 - **增加当前区域的窗口容量**：`Mod + ;`
 - **减少当前区域的窗口容量**：`Mod + Shift + ;`
 

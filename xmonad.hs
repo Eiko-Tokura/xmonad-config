@@ -351,10 +351,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_u     ), sendMessage FocusedNextLayout)
     --
     -- Move focus to the next main window
-    , ((modm,               xK_n     ), sendMessage NextFocus)
+    , ((modm,               xK_l     ), sendMessage NextFocus)
 
     -- Move focus to the previous main window
-    , ((modm .|. shiftMask, xK_n     ), sendMessage PrevFocus)
+    , ((modm,               xK_h     ), sendMessage PrevFocus)
 
     -- Move focus to the recent workspace
     , ((modm,               xK_Tab   ), toggleRecentNonEmptyWS)
@@ -381,10 +381,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_k     ), windows W.swapUp )
 
     -- Shrink the master area
-    , ((modm,               xK_h     ), sendMessage Shrink)
+    , ((modm .|. shiftMask, xK_h     ), sendMessage Shrink)
 
     -- Expand the master area
-    , ((modm,               xK_l     ), sendMessage Expand)
+    , ((modm .|. shiftMask, xK_l     ), sendMessage Expand)
 
     -- Push window back into tiling
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
